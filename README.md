@@ -134,3 +134,64 @@ Cloud users—whether individuals, startups, or enterprises—leverage virtualiz
 
 ---
 
+## How to Create Virtual Machines (VMs)
+
+Creating VMs involves provisioning computing resources on a cloud platform. Let’s take the example of **Amazon Web Services (AWS)** to understand the different methods available for creating and managing VMs (called EC2 instances in AWS).
+
+---
+### 1. AWS Management Console (Browser-based Interface)
+- The AWS Management Console provides a graphical user interface (GUI) accessible through a browser.
+- **Steps**:
+  1. Log in to the AWS Management Console.
+  2. Navigate to the **EC2 Dashboard**.
+  3. Click on **Launch Instance**.
+  4. Configure instance details such as:
+      - AMI (Amazon Machine Image)
+      - Instance type
+      - Storage
+      - Network settings
+      - Security groups
+  5. Review and launch the instance.
+- **Best suited for**: Beginners or ad-hoc VM creation.
+
+---
+
+### 2. AWS CLI (Command Line Interface)
+- AWS CLI is a powerful command-line tool for managing AWS resources programmatically.
+- Best suited for: Teams that prefer automation and scripting over GUI.
+- **Command to create an EC2 instance**:
+  ```bash
+  aws ec2 run-instances \
+    --image-id ami-0abcdef1234567890 \
+    --count 1 \
+    --instance-type t2.micro \
+    --key-name MyKeyPair \
+    --security-group-ids sg-903004f8 \
+    --subnet-id subnet-6e7f829e```
+---
+
+### 3. AWS CDK (Cloud Development Kit)
+
+AWS CDK allows developers to define infrastructure as code using programming languages like Python, JavaScript, or TypeScript.
+Best suited for: Developers who prefer writing code to manage cloud infrastructure.
+
+**Example using CDK in Python**:
+```python
+from aws_cdk import core, aws_ec2
+
+class EC2Stack(core.Stack):
+    def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
+        super().__init__(scope, id, **kwargs)
+
+        vpc = aws_ec2.Vpc(self, "MyVpc", max_azs=2)
+
+        aws_ec2.Instance(self, "MyInstance",
+                         instance_type=aws_ec2.InstanceType("t2.micro"),
+                         machine_image=aws_ec2.AmazonLinuxImage(),
+                         vpc=vpc)
+
+
+
+
+
+
