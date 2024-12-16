@@ -247,6 +247,10 @@ resource "aws_instance" "example" {
         Use Terraform, as it supports a declarative approach and works seamlessly across different cloud providers.
 ---
 
+### How to Connect to instance
+- using terminal
+- for windowns tools like putty, mobaxterm
+
 
 
 
