@@ -189,7 +189,63 @@ class EC2Stack(core.Stack):
                          instance_type=aws_ec2.InstanceType("t2.micro"),
                          machine_image=aws_ec2.AmazonLinuxImage(),
                          vpc=vpc)
+```
+---
 
+### 4. AWS API (Programmatic Approach)
+
+You can write scripts in programming languages like Python, Java, or Node.js to interact directly with AWS services using SDKs.
+Best suited for: Custom automation and integrations with other tools or applications.
+
+**Example in Python using `boto3`**:
+```python
+import boto3
+
+ec2 = boto3.client('ec2')
+ec2.run_instances(
+    ImageId='ami-0abcdef1234567890',
+    MinCount=1,
+    MaxCount=1,
+    InstanceType='t2.micro',
+    KeyName='MyKeyPair',
+    SecurityGroupIds=['sg-903004f8'],
+    SubnetId='subnet-6e7f829e'
+)
+
+```
+
+---
+
+### 5. Terraform (Infrastructure as Code)
+
+Terraform is a popular infrastructure-as-code tool that enables cloud automation and multi-cloud deployments.
+Best suited for: Organizations that want to manage infrastructure across multiple cloud providers efficiently.
+
+**Example Terraform configuration**:
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0abcdef1234567890"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "MyTerraformInstance"
+  }
+}
+
+```
+
+### Choosing the Right Method
+
+   -  If your organization focuses solely on AWS:
+        Use AWS CLI or AWS CDK for tighter integration with AWS services and developer-centric workflows.
+
+   - For cloud automation and multi-cloud strategies:
+        Use Terraform, as it supports a declarative approach and works seamlessly across different cloud providers.
+---
 
 
 
