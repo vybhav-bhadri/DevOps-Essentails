@@ -40,6 +40,51 @@ CI/CD stands for **Continuous Integration** and **Continuous Deployment/Delivery
 4. **Monitoring:**
    - Post-deployment monitoring ensures the system is functioning as expected.
 
+## Traditional Pipelines
+
+### Setup:
+- Traditional pipelines were often set up using physical or virtual machines, with fixed resources allocated for build and deployment tasks.
+- Scripts or tools like Jenkins were manually configured to handle builds, tests, and deployments.
+
+### Resource Wastage:
+- **Underutilization:** Pipelines often reserved resources even during idle periods, leading to wasted compute power and cost.
+- **Overprovisioning:** Anticipating peak loads, organizations frequently overprovisioned infrastructure, further increasing expenses.
+
+## Kubernetes for Scaling Pipelines
+
+Kubernetes (K8s) can dynamically scale CI/CD pipelines based on demand, reducing resource wastage:
+
+- **Auto-scaling:** Kubernetes automatically scales up pods to handle high workloads during build or deployment phases.
+- **Scaling Down:** Once tasks are completed, Kubernetes scales down unused pods, freeing up resources.
+- **Cost Efficiency:** By running workloads only when needed, Kubernetes minimizes infrastructure costs.
+
+### Example:
+- A CI/CD pipeline running on Kubernetes can spin up additional pods during peak build times and shut them down once builds are complete.
+
+## Tools for CI/CD
+
+### GitHub Actions and Other Tools
+
+- **GitHub Actions:**
+  - Integrated with GitHub repositories.
+  - Allows developers to define workflows for CI/CD using YAML files.
+  - Supports a wide range of actions for building, testing, and deploying code.
+
+- **GitLab CI/CD:**
+  - Provides an integrated pipeline feature for GitLab repositories.
+  - Supports Kubernetes integration for scaling builds and deployments.
+
+- **Jenkins:**
+  - Widely used for traditional and modern pipelines.
+  - Supports plugins for containerized builds and Kubernetes integration.
+
+- **CircleCI:**
+  - Cloud-native CI/CD tool optimized for container-based workflows.
+  - Provides caching and parallelism to speed up builds.
+
+- **ArgoCD:**
+  - A declarative GitOps tool for Kubernetes-based deployments.
+
 ## Examples of CI/CD in Organizations
 
 ### Example 1: E-commerce Application
