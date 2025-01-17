@@ -1,8 +1,19 @@
 # CI/CD Overview
 
+## Table of Contents
+1. [What is CI/CD?](#what-is-ci-cd)
+2. [Why Use CI/CD?](#why-use-ci-cd)
+3. [How Does CI/CD Work?](#how-does-ci-cd-work)
+4. [Traditional Pipelines](#traditional-pipelines)
+5. [Kubernetes for Scaling Pipelines](#kubernetes-for-scaling-pipelines)
+6. [Tools for CI/CD](#tools-for-ci-cd)
+7. [Examples of CI/CD in Organizations](#examples-of-ci-cd-in-organizations)
+8. [Popular CI/CD Tools](#popular-ci-cd-tools)
+9. [Benefits in Organizations](#benefits-in-organizations)
+
 ## What is CI/CD?
 
-CI/CD stands for **Continuous Integration** and **Continuous Deployment/Delivery**. It is a software development practice and a set of automated processes that streamline code integration, testing, and deployment to deliver applications efficiently and reliably.
+CI/CD stands for **Continuous Integration** and **Continuous Deployment/Delivery**. It is a software development practice and a set of automated processes that streamline code integration, testing, and deployment.
 
 ### Components of CI/CD:
 - **Continuous Integration (CI):**
